@@ -144,8 +144,7 @@ class StreamingQuerySuite extends StreamTest with BeforeAndAfter {
           val metadataLogDir = new java.io.File(q.offsetLog.metadataPath.toString)
           val logFileNames = metadataLogDir.listFiles().toSeq.map(_.getName())
           val toTest = logFileNames.filter(! _.endsWith(".crc")) // Workaround for SPARK-17475
-          toTest.size == 1 && toTest.head == "2"
-          true
+          (toTest.size == 1 && toTest.head == "2")
         }
       )
     )
