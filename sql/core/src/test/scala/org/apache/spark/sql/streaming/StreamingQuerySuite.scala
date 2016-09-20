@@ -125,7 +125,7 @@ class StreamingQuerySuite extends StreamTest with BeforeAndAfter {
     )
   }
 
-  testQuietly("StreamExecution metadata garbarge collection") {
+  testQuietly("[SPARK-17513] StreamExecution metadata garbarge collection") {
     val inputData = MemoryStream[Int]
     val mapped = inputData.toDS().map(6 / _)
 
